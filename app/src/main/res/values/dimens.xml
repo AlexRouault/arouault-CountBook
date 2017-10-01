@@ -1,0 +1,16 @@
+<!--
+  ~ project: @app_name
+  ~ class: @file_name
+  ~ Author: Alex Rouault
+  ~ Date: Oct 2, 2017
+  ~
+  ~ Copyright (c) Alex Rouault, CMPUT301, University of Alberta - All Rights
+  ~ Reserved. You may use, distribute, or modify this code under terms and
+  ~ conditions of the Code of Students Behavior at University of Alberta
+  -->
+
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="field_text_size">14dp</dimen>
+    <dimen name="fine_text_size">10dp</dimen>
+</resources>

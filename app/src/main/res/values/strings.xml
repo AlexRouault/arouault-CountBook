@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">arouault-CountBook</string>
+    <string name="add_counter">ADD COUNTER</string>
+    <string name="edit_counter_title">Edit Counter</string>
+    <string name="add_counter_title">Add Counter</string>
+    <string name="name_field">Name:</string>
+    <string name="date_field">Last Modified:</string>
+    <string name="current_value_field">Current Value:</string>
+    <string name="initial_value_field">Initial Value:</string>
+    <string name="comment_field">Comment:</string>
+    <string name="title_activity_add_counter">AddCounterActivity</string>
+    <string name="save">SAVE</string>
+</resources>
