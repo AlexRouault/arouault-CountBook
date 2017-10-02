@@ -18,6 +18,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+/*
+ * Activity for adding counters opened by ListCountersActivity when "Add"
+ * button is clicked. Allows the user to add a counter with a name, initial
+ * value, and optional comment.
+ */
 public class AddCounterActivity extends AppCompatActivity {
 
     private EditText name;
@@ -25,18 +30,34 @@ public class AddCounterActivity extends AppCompatActivity {
     private EditText comment;
     private Counter newCounter;
 
+     /*
+      * Run when this activity is opened
+      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_counter);
+        setContentView(R.layout.activity_list_counters);
+    }
 
+    /*
+     * Run when the activity is started
+     */
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        /*
+         * User input fields
+         */
         name = (EditText) findViewById(R.id.nameInput);
         initialValue = (EditText) findViewById(R.id.initialValueInput);
         comment = (EditText) findViewById(R.id.commentInput);
 
+        /*
+         * This button saves the new counter and starts ListCountersActivity
+         */
         Button saveButton;
         saveButton = (Button) findViewById(R.id.addCounter);
-
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

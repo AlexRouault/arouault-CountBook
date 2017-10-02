@@ -14,6 +14,12 @@ package ca.ualberta.assignment1;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+/*
+ * This activity allows the user to modify an existing counter.
+ * ListCountersActivity creates this when an existing counter from the list
+ * is clicked
+ */
+
 public class EditCounterActivity extends AppCompatActivity {
 
     @Override

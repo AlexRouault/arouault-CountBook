@@ -34,6 +34,11 @@ import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+/*
+ * Activity for the main screen when the app opens. Displays a list of the
+ * counters.
+ */
+
 public class ListCountersActivity extends AppCompatActivity {
 
     private static final String FILENAME = "file.sav";
@@ -42,21 +47,13 @@ public class ListCountersActivity extends AppCompatActivity {
     private ArrayList<Counter> counterList = new ArrayList<>();
     private ArrayAdapter<Counter> adapter;
 
+    /*
+     * Run when this activity is opened
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_counters);
-
-        Button addButton;
-        addButton = (Button) findViewById(R.id.addCounter);
-
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ListCountersActivity.this,
-                        AddCounterActivity.class));
-            }
-        });
     }
 
     /**
@@ -68,12 +65,29 @@ public class ListCountersActivity extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onStart();
         loadFromFile();
+
+        /*
+         * Button to add a new counter starts AddCounterActivity
+         */
+        Button addButton;
+        addButton = (Button) findViewById(R.id.addCounter);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ListCountersActivity.this,
+                        AddCounterActivity.class));
+            }
+        });
+
+        /*
+         * Array adapter for counterList
+         */
         adapter = new ArrayAdapter<Counter>(this,
                 R.layout.list_item, counterList);
         countersListView.setAdapter(adapter);
     }
 
-    /**
+    /*
      * loads save data from Gson
      */
 
@@ -86,7 +100,6 @@ public class ListCountersActivity extends AppCompatActivity {
             Type listType = new TypeToken<ArrayList<Counter>>(){}.getType();
             counterList = gson.fromJson(in, listType);
             //https://github.com/google/gson/blob/master/UserGuide.md#TOC-Collections-Examples
-
 
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
@@ -110,10 +123,6 @@ public class ListCountersActivity extends AppCompatActivity {
             gson.toJson(counterList, writer);
             writer.flush();
             fos.close();
-
-
-
-
         } catch (FileNotFoundException e) {
             // TODO Auto-generated catch block
             throw new RuntimeException();
@@ -123,6 +132,9 @@ public class ListCountersActivity extends AppCompatActivity {
         }
     }
 
+    /*
+     * Adds a counter to the list
+     */
     public void addCounter(Counter newCounter) {
         counterList.add(newCounter);
     }
